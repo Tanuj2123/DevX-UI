@@ -1,18 +1,22 @@
+import { useSelector } from "react-redux"
+import { USER_DEFAULT_URL } from "../utils/constants";
 
 
 const Navbar = ()=>{
+
+    const user = useSelector(state=> state.user.user);
     return (
         <div className="navbar bg-base-300 shadow-sm p-2 py-4">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">DevX</a>
         </div>
-        <div className="flex gap-2">
+         {user && <div className="flex gap-2">
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-2">
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  src={user?.photoUrl || USER_DEFAULT_URL} />
               </div>
             </div>
             <ul
@@ -28,7 +32,7 @@ const Navbar = ()=>{
               <li><a>Logout</a></li>
             </ul>
           </div>
-        </div>
+        </div>}
       </div>
     )
 }
