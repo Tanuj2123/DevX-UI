@@ -31,7 +31,6 @@ const Body = () => {
 
   useEffect(()=>{
     if(!user){
-      console.log("called");
       fetchUser();
     }
   },[]);

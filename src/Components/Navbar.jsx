@@ -21,7 +21,7 @@ const Navbar = ()=>{
       return (
         <div className="navbar bg-base-300 shadow-sm p-2 py-4">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl" to="/">DevX</a>
+          <Link className="btn btn-ghost text-xl" to="/">DevX</Link>
         </div>
          {user && <div className="flex gap-2">
           <div className="dropdown dropdown-end">
