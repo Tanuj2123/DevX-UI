@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { addUser } from "../store/user.slice";
 import { BACKEND_URL } from "../utils/constants";
 
@@ -10,8 +10,8 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [emailId,setEmailId] = useState("tanujk389@gmail.com");
-  const [password,setPassword] = useState("Tanuj@123");
+  const [emailId,setEmailId] = useState("");
+  const [password,setPassword] = useState("");
   const [errorMessage,setErrorMessage] = useState("");
 
   const user = useSelector(state=>state.user.user);
@@ -47,6 +47,7 @@ const Login = () => {
         <input className="m-2 p-2 border border-black rounded-lg" type="email" placeholder="Email..." value={emailId} onChange={(e)=>setEmailId(e.target.value)}></input>
         <input className="m-2 p-2 border border-black rounded-lg" type="password" placeholder="Password..." value={password} onChange={(e)=>setPassword(e.target.value)}></input>
         <p className="text-red-600">{errorMessage}</p>
+        <p>New? <Link to="/signup" className="text-left text-blue-700">SignUp Now</Link></p>
         <button className="px-4 py-2 mt-6 rounded-lg w-44 text-taupe-950 bg-slate-200 hover:bg-slate-50" type="submit" onClick={(e)=>handleLogin(e)}>Log In</button>
       </form>
       </div>
