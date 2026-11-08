@@ -23,7 +23,11 @@ const Navbar = ()=>{
         <div className="flex-1">
           <Link className="btn btn-ghost text-xl" to="/">DevX</Link>
         </div>
-         {user && <div className="flex gap-2">
+        {user && <><div>
+          <Link to="/connections" className="mx-2 cursor-pointer">Connections</Link>
+          <Link to="/requests" className="mx-2 cursor-pointer">Requests</Link>
+        </div>
+        <div className="flex gap-2">
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-2">
               <div className="w-10 rounded-full">
@@ -45,7 +49,7 @@ const Navbar = ()=>{
               <li><Link onClick={handleLogout}>Logout</Link></li>
             </ul>
           </div>
-        </div>}
+          </div></>}
       </div>
     )
 }

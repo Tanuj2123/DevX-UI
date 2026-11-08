@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { addUser } from "../store/user.slice";
 import { BACKEND_URL } from "../utils/constants";
+import Navbar from "./Navbar";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="flex justify-center  px-4 py-8">
       <form
         className="card  max-w-xs border border-base-300 bg-base-200 shadow-xl w-96"
@@ -150,6 +153,7 @@ const SignUp = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

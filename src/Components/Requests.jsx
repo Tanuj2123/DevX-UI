@@ -18,9 +18,11 @@ const Requests = ()=>{
     },[]);
 
     return(
-        <div>
+        <>
+        {requests.length!==0?<div>
            {requests.map((request)=> <Card key={request._id} data={request?.fromUserId} b1="Reject" b2="Accept" id={request._id}/>)}
-        </div>
+        </div>:<h1 className="flex justify-center text-3xl">You Dont Have Any Requests</h1>}
+        </>
     )
 }
 
