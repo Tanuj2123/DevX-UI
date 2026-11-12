@@ -16,7 +16,13 @@ const Connections= ()=>{
     return (
         <>
         {connections.length!==0?<div>
-            {connections.map((connection)=> <Card key={connection?._id}data={connection} b1={null} b2={null}/>)}
+            {connections.map((connection)=>{
+                if(!connection){
+                    return <></>
+                }
+                return <Card key={connection?._id}data={connection} b1={null} b2={null}/>
+            } 
+            )}
         </div>:<h1 className="flex justify-center text-3xl">You dont have any Connections</h1>}
         </>
     )
