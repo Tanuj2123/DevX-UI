@@ -40,6 +40,7 @@ const Card = ({data,id,b1,b2})=>{
     }
 
     const {photoUrl,name,age,gender} = data;
+    if(!name) return;
     return (
         <div className="card card-side w-full max-w-md overflow-hidden rounded-2xl bg-base-300 shadow-lg m-3">
             <figure className="w-36 shrink-0 p-3">
