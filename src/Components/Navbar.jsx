@@ -24,6 +24,7 @@ const Navbar = ()=>{
           <Link className="btn btn-ghost text-xl" to="/">DevX</Link>
         </div>
         {user && <><div>
+          <Link to="/premium" className="mx-2 cursor-pointer text-yellow-500">Premium</Link>
           <Link to="/connections" className="mx-2 cursor-pointer">Connections</Link>
           <Link to="/requests" className="mx-2 cursor-pointer">Requests</Link>
         </div>

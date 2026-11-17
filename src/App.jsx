@@ -7,6 +7,7 @@ import Connections from "./Components/Connections";
 import Requests from "./Components/Requests";
 import SignUp from "./Components/SignUp";
 import Settings from "./Components/Settings";
+import Upgrade from "./Components/Upgrade";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signup" element={<SignUp/>}></Route>
           <Route path="/" element={<Body/>}>
             <Route path="/" element={<Feed/>}></Route>
+            <Route path="/premium" element={<Upgrade/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/profile" element={<Profile/>}></Route>
             <Route path="/connections" element={<Connections/>}></Route>
