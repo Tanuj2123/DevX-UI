@@ -21,7 +21,7 @@ const Navbar = ()=>{
       return (
         <div className="navbar bg-base-300 shadow-sm p-2 py-4">
         <div className="flex-1">
-          {user?<Link className="btn btn-ghost text-xl" to="/">DevX</Link>:<Link className="btn btn-ghost text-xl">DevX</Link>}
+          {user?<Link className="btn btn-ghost text-xl" to="/">DevX</Link>:<button className="btn btn-ghost text-xl">DevX</button>}
         </div>
         {user && <><div>
           <Link to="/premium" className="mx-2 cursor-pointer text-yellow-500">Premium</Link>
