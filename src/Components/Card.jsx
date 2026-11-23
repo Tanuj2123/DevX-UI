@@ -1,12 +1,14 @@
 import axios from "axios";
 import { BACKEND_URL, USER_DEFAULT_URL } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../store/feed.slice";
 import { updateRequestData } from "../store/requests.slice";
+import { Link } from "react-router";
 
 
-const Card = ({data,id,b1,b2})=>{
+const Card = ({data,id,b1,b2,chat})=>{
     const dispatch = useDispatch();
+    const isPremium = useSelector((state)=>state.user?.user?.isPremium);
 
     const handleB1Click =  (e)=>{
         const value = e.target.value;
@@ -38,8 +40,8 @@ const Card = ({data,id,b1,b2})=>{
         const res = await axios.post(`${BACKEND_URL}/request/review/${status}/${id}`,{},{withCredentials:true});
         dispatch(updateRequestData(id));
     }
-
-    const {photoUrl,name,age,gender} = data;
+    
+    const {_id,photoUrl,name,age,gender} = data;
     if(!name) return;
     return (
         <div className="card card-side w-full max-w-md overflow-hidden rounded-2xl bg-base-300 shadow-lg m-3">
@@ -52,11 +54,16 @@ const Card = ({data,id,b1,b2})=>{
             </figure>
 
             <div className="card-body justify-between gap-3 p-4">
-                <div>
+                <div className="flex items-center">
+                    <div>
                 <h2 className="card-title text-2xl font-bold">{name}</h2>
                 <p className="mt-1 text-sm text-base-content/70">
                     {age} years old <span aria-hidden="true">·</span> {gender}
                 </p>
+                </div>
+                {chat && isPremium&&<div className="mx-8 rounded-lg btn btn-secondary">
+                    <Link to={"/chat/"+_id} >Message</Link>
+                </div>}
                 </div>
 
                 <div className="card-actions">

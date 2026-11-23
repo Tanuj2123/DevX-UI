@@ -22,7 +22,7 @@ const Feed = ()=>{
     
     return (
         <div className="flex items-center justify-center flex-wrap">
-            {feed && feed.map((item)=><Card key={item._id} id={item._id} data={item} b1="Ignore" b2="Send"/>)}
+            {feed && feed.map((item)=><Card key={item._id} id={item._id} data={item} b1="Ignore" b2="Send" chat={false}/>)}
         </div>
     )
 }

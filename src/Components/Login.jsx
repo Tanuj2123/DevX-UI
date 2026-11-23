@@ -13,6 +13,7 @@ const Login = () => {
   const [emailId,setEmailId] = useState("");
   const [password,setPassword] = useState("");
   const [errorMessage,setErrorMessage] = useState("");
+  const [showPassword,setShowPassword] = useState(false);
 
   const user = useSelector(state=>state.user.user);
 
@@ -39,13 +40,25 @@ const Login = () => {
 
   }
 
+   const handleShowPassword = (e)=>{
+    if(e.target.checked){
+      setShowPassword(true);
+    }
+    else if(!e.target.checked){
+      setShowPassword(false);
+    }
+  }
+
 
   return (
       <div className="flex justify-center">
         <form className="flex flex-col items-center justify-center w-60 h-full mt-36 bg-base-300 p-10  m-2 rounded-lg">
         <h1 className="text-center text-3xl mb-6">DevX</h1>
         <input className="m-2 p-2 border border-black rounded-lg" type="email" placeholder="Email..." value={emailId} onChange={(e)=>setEmailId(e.target.value)}></input>
-        <input className="m-2 p-2 border border-black rounded-lg" type="password" placeholder="Password..." value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+        <input className="m-2 p-2 border border-black rounded-lg" type={showPassword?"text":"password"} placeholder="Password..." value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+        <div className="flex items-center m-0 justify-start w-full">
+          <input className="mt-1" type="checkbox" onChange={(e)=>handleShowPassword(e)}></input><span className="ml-2">Show Password</span>
+        </div>
         <p className="text-red-600">{errorMessage}</p>
         <p>New? <Link to="/signup" className="text-left text-blue-700">SignUp Now</Link></p>
         <button className="px-4 py-2 mt-6 rounded-lg w-44 text-taupe-950 bg-slate-200 hover:bg-slate-50" type="submit" onClick={(e)=>handleLogin(e)}>Log In</button>

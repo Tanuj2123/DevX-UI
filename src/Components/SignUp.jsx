@@ -18,6 +18,7 @@ const SignUp = () => {
     photoUrl: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword,setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,6 +44,15 @@ const SignUp = () => {
       setErrorMessage(error.response?.data?.message || "Unable to create your account.");
     }
   };
+
+  const handleShowPassword = (e)=>{
+    if(e.target.checked){
+      setShowPassword(true);
+    }
+    else if(!e.target.checked){
+      setShowPassword(false);
+    }
+  }
 
   return (
     <>
@@ -123,12 +133,13 @@ const SignUp = () => {
                 className="input input-bordered w-full"
                 id="signup-password"
                 name="password"
-                type="password"
+                type={showPassword?"text":"password"}
                 value={formData.password}
                 onChange={handleChange}
                 autoComplete="new-password"
                 required
               />
+              <input className="mt-2" type="checkbox" onChange={(e)=>handleShowPassword(e)}></input><span className="ml-2">Show Password</span>
             </label>
 
             <label className="form-control w-full gap-1">

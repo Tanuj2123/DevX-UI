@@ -35,3 +35,7 @@
 }
 - hella time of debuuging little bit help of AI found it so be careful next time check what backend is expecting and send that data and format 
 - used AI to design the card as you know im bad at CSS 
+
+
+
+# Web Sockets(Chat Feature)

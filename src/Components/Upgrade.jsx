@@ -23,7 +23,6 @@ const Upgrade = () => {
                 membershipType:type
             },{withCredentials:true});
 
-            console.log(order);
 
             const {keyId,amount,currency,notes,orderId} = order.data;
 
