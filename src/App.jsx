@@ -9,6 +9,7 @@ import SignUp from "./Components/SignUp";
 import Settings from "./Components/Settings";
 import Upgrade from "./Components/Upgrade";
 import Chat from "./Components/Chat";
+import VerifyEmail from "./Components/VerifyEmail";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/signup" element={<SignUp/>}></Route>
+          <Route path="/verifyEmail" element={<VerifyEmail/>}></Route>
           <Route path="/" element={<Body/>}>
             <Route path="/" element={<Feed/>}></Route>
             <Route path="/premium" element={<Upgrade/>}></Route>

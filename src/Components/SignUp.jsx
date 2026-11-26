@@ -35,9 +35,14 @@ const SignUp = () => {
         { withCredentials: true },
       );
 
+
       if (res.data?.success === true) {
-        dispatch(addUser(res.data.user));
-        navigate("/");
+        navigate("/verifyEmail",{
+          state:{
+            ...formData,
+            age: Number(formData.age)
+          }
+        });
       }
     } catch (error) {
       console.error(error);

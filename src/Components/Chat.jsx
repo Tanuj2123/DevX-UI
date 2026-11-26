@@ -25,7 +25,6 @@ const Chat = () => {
         const data = await axios.get(BACKEND_URL+"/chat/"+chatId,{withCredentials:true});
 
         const pastMessages = data?.data?.chat?.messages;
-        console.log(pastMessages);
         
         
         setPastMessages(pastMessages);
